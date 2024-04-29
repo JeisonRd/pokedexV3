@@ -1,0 +1,40 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">P<span><img src="https://w7.pngwing.com/pngs/282/481/png-transparent-pokemon-pokeball-illustration-pikachu-ash-ketchum-pokemon-pokeball-pokemon-johto-technology.png" style="width: 30px;">kedex App</h1>
+        <a href="/create-regiones" class="btn btn-primary my-2">Crear nueva Región</a>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div>
+
+
+    <div class="row justify-content-center">
+
+      {{#if hasRegiones}}
+
+        {{#each regiones as |region|}}
+
+          <div class="card col-md-3" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{region.name}}</h5>
+                  <p class="card-text">{{region.description}}</p>
+                  <a href="/edit-regiones/{{region.id}}?edit=true"class="btn btn-warning">Editar</a>
+
+                  <form class="form-delete-region form-inline" action="/delete-regiones" method="POST" data-region-name="{{region.name}}">
+                      <input type="hidden" name="regionId" value="{{region.id}}">
+                      <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
+                </div>
+          </div>
+      {{/each}}
+
+      {{else}}
+      <h1>No hay regiones creadas</h1>
+      {{/if}}
+
+    </div>
+  </div>
+</div>
