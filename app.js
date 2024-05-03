@@ -62,7 +62,7 @@ sequelize.sync().then( function(result){
   console.log(error)
 })
 
-app.listen(port, ()=> {
+app.listen(port,  "0.0.0.0", ()=> {
   console.log(`Application running on port ${port}`);
 });
 
