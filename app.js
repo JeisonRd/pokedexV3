@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const path = require("path");
 const express = require("express");
 const { engine } = require("express-handlebars");
@@ -6,6 +8,7 @@ const Pokemons = require("./models/Pokemones");
 const Regiones = require("./models/Regiones");
 const Tipos = require("./models/Tipos");
 const port = process.env.PORT || 3000;
+
 
 const errorController = require("./controller/ErrorController");
 
